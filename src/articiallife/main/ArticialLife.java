@@ -1,6 +1,6 @@
 package articiallife.main;
 
-import articiallife.model.animals.signals.Pheromony;
+import articiallife.model.animals.signals.Pheromone;
 import articiallife.model.place.Forest;
 import articiallife.utils.Position;
 
@@ -16,7 +16,7 @@ public class ArticialLife
         
         for(int i = 0; i < 5; i++)
             for(int j = 0; j < 5; j++)
-                f.setObject(new Pheromony(names[i]), new Position(i, j));
+                f.setObject(new Pheromone(names[i]), new Position(i, j));
         
         for(int i = 0; i < n; i++)
         {

@@ -2,25 +2,25 @@ package articiallife.model.animals.signals;
 
 import java.text.DecimalFormat;
 
-public class Pheromony<Animal>
+public class Pheromone<Animal>
 {
     public String name;
     public double concentration;
     private final double dispersing = 0.2;
     private final Animal a = (Animal) new Object();
     
-    public Pheromony()
+    public Pheromone()
     {
         this("Safe", 1);
     }
     
-    public Pheromony(String t, double d)
+    public Pheromone(String t, double d)
     {
         this.setName(t);
         this.setConcentration(d);
     }
     
-    public Pheromony(String t)
+    public Pheromone(String t)
     {
         this(t, 1);
     }

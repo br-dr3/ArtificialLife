@@ -1,6 +1,6 @@
 package articiallife.model.animals;
 
-import articiallife.model.animals.signals.Pheromony;
+import articiallife.model.animals.signals.Pheromone;
 import articiallife.model.place.Forest;
 import articiallife.utils.Direction;
 import articiallife.utils.Position;
@@ -123,7 +123,7 @@ public class Tiger implements Animal
         }
     }
     
-    public boolean checkPheromony(Pheromony p)
+    public boolean checkPheromony(Pheromone p)
     {
         return p.getType() == this.getClass();
     }

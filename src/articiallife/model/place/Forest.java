@@ -1,7 +1,7 @@
 package articiallife.model.place;
 
 import articiallife.model.animals.Animal;
-import articiallife.model.animals.signals.Pheromony;
+import articiallife.model.animals.signals.Pheromone;
 import articiallife.utils.Position;
 import java.util.HashMap;
 import java.util.Map;
@@ -84,7 +84,7 @@ public class Forest
     {
         for(int i = 0; i < this.matrix.length; i++)
             for(int j = 0; j < this.matrix[0].length; j++)
-                if(matrix[i][j] instanceof Pheromony)
-                    ((Pheromony) matrix[i][j]).update();
+                if(matrix[i][j] instanceof Pheromone)
+                    ((Pheromone) matrix[i][j]).update();
     }
 }
