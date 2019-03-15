@@ -20,11 +20,16 @@ public class Forest
     
     public Forest()
     {
-        map = new HashMap();
-        matrix = new Object[10][10];
+        this(10, 10);
     }
     
-    public void setObject(Animal a, Position p) throws Exception
+    public Forest(int x, int y)
+    {
+        map = new HashMap();
+        matrix = new Object [x][y];
+    }
+    
+    public void setObject(Animal a, Position p)
     {
         if (map.containsKey(a))
         {
@@ -33,10 +38,10 @@ public class Forest
         }
         
         if (map.containsValue(p))
-            throw new Exception("The position " + p + " already have a Object");
+            return;
         
         if(!p.isValid() || p.getX() >= matrix.length || p.getY() >= matrix[0].length)
-            throw new Exception("The position " + p + " is not valid");
+            return;
         
         matrix[p.getX()][p.getY()] = a;
         map.put(a, p);
@@ -45,9 +50,15 @@ public class Forest
     
     public Object getObject(Position p)
     {
-        return matrix[p.getX()][p.getY()];
+        if(p.getX() >= 0 && 
+           p.getX() < matrix.length && 
+           p.getY() >= 0 &&
+           p.getY() < matrix[0].length)
+            return matrix[p.getX()][p.getY()];
+        else
+            return new Integer(-1);
     }
-    
+        
     @Override
     public String toString()
     {
@@ -67,5 +78,4 @@ public class Forest
         
         return stringBuilder.toString();
     }
-    
 }

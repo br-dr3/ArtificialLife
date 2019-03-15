@@ -29,15 +29,20 @@ public class Direction
         }
     }
       
-    public CardinalDirections direction;
+    public CardinalDirections cardinalDirection;
     
     public Direction(CardinalDirections cd)
     {
-        this.direction = cd;
+        this.cardinalDirection = cd;
+    }
+    
+    public CardinalDirections getDirection()
+    {
+        return this.cardinalDirection;
     }
     
     public Position getNewPosition(Position p)
     {        
-        return new Position(p.getX() + this.direction.x(), p.getY() + this.direction.y());
+        return new Position(p.getX() + this.cardinalDirection.x(), p.getY() + this.cardinalDirection.y());
     }
 }

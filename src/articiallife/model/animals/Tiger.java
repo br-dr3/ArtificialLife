@@ -10,6 +10,7 @@ public class Tiger implements Animal
 {
     private double strength;
     private double life;
+    public String name;
     
     public Tiger(double strength, double life)
     {
@@ -17,12 +18,24 @@ public class Tiger implements Animal
         this.setLife(life);
     }
     
-    public Tiger()
+    public Tiger(String s)
     {
         this.setStrength(10);
         this.setLife(100);
+        this.setName(s);
     }
 
+    
+    public void setName(String s)
+    {
+        this.name = s;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    
     @Override
     public boolean isAlive()
     {
@@ -89,15 +102,18 @@ public class Tiger implements Animal
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         
         return (this.isAlive())?
-                "Tiger(alive)":
-                "Tiger(dead)";
+                this.getName():
+                "dead("+ this.getName() +")";
     }
 
     @Override
-    public void walk(Forest f, Direction d) throws Exception
+    public void walk(Forest f, Direction d)
     {
-        Position thisPosition = f.getPosition(this);
-        f.setObject(this, d.getNewPosition(thisPosition));        
+        if(d != null)
+        {
+            Position thisPosition = f.getPosition(this);
+            f.setObject(this, d.getNewPosition(thisPosition));
+        }
     }
     
     public void walk(Forest f, Direction d, int times) throws Exception

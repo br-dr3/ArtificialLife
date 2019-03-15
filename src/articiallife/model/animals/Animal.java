@@ -13,7 +13,7 @@ public interface Animal
     public void setLife(double life);
     public double getLife();
     
-    public void walk (Forest f, Direction d) throws Exception;
+    public void walk (Forest f, Direction d);
     
     public double getLuck();
 }
