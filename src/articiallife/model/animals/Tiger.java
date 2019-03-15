@@ -89,8 +89,8 @@ public class Tiger implements Animal
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         
         return (this.isAlive())?
-                "Tiger[life = "+ decimalFormat.format(this.getLife()) + "; strength = " + decimalFormat.format(this.getStrength()) + "]":
-                "Tiger[dead]";
+                "Tiger(alive)":
+                "Tiger(dead)";
     }
 
     @Override

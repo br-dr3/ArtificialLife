@@ -37,11 +37,7 @@ public class Direction
     }
     
     public Position getNewPosition(Position p)
-    {
-        System.out.println(p);
-        System.out.println(this.direction.x());
-        System.out.println(this.direction.y());
-        
+    {        
         return new Position(p.getX() + this.direction.x(), p.getY() + this.direction.y());
     }
 }
