@@ -56,12 +56,7 @@ public class TigerController
                     cd = new Direction(CardinalDirections.WEST);
             }
             
-            try
-            {
-                this.tiger.walk(f, cd);
-            }
-            catch (Exception e)
-            {   }
+            this.tiger.walk(f, cd);
         }
     }
 }
