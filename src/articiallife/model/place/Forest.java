@@ -35,6 +35,9 @@ public class Forest
         if (map.containsValue(p))
             throw new Exception("The position " + p + " already have a Object");
         
+        if(!p.isValid() || p.getX() >= matrix.length || p.getY() >= matrix[0].length)
+            throw new Exception("The position " + p + " is not valid");
+        
         matrix[p.getX()][p.getY()] = a;
         map.put(a, p);
         
