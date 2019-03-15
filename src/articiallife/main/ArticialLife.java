@@ -10,8 +10,16 @@ public class ArticialLife
     {
         Forest f = new Forest();
         
-        f.setObject(new Tiger(), new Position(0, 0));
+        Tiger tiger1 = new Tiger();
+        Tiger tiger2 = new Tiger();
         
-        System.out.println(f);
+        while (tiger1.isAlive() && tiger2.isAlive())
+        {
+            tiger1.fight(tiger2);
+            tiger2.fight(tiger1);
+        } 
+        
+        System.out.println(tiger1);
+        System.out.println(tiger2);
     }
 }

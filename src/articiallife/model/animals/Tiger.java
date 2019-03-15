@@ -34,17 +34,16 @@ public class Tiger implements Animal
     @Override
     public void fight(Animal a)
     {
-        while (a.isAlive() && this.isAlive())
-        {
-            System.out.println("Fighting..");
-            a.setLife(a.getLife()-this.getStrength());
+        if(this.isDead())
+            return;
+        
+        a.setLife(a.getLife()-this.getStrength());
             
-            if(a.isAlive())
-                this.setLife(this.getLife()-a.getStrength());
-            
-            this.setStrength(this.getStrength()*this.getLuck());
-            a.setStrength(a.getStrength()*a.getLuck());
-        }
+        if(a.isAlive())
+            this.setLife(this.getLife()-a.getStrength());
+        
+        this.setStrength(this.getStrength()*this.getLuck());
+        a.setStrength(a.getStrength()*a.getLuck());
     }
 
     @Override
