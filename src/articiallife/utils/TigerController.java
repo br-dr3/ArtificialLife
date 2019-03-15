@@ -39,7 +39,8 @@ public class TigerController
     
     public void run(Forest f, int times)
     {
-        Random r = new Random();  
+        long seed = System.currentTimeMillis()+Thread.currentThread().getId() * 1234567890123456789L;
+        Random r = new Random(seed);  
         Direction cd = null;
         for (int i = 0; i < times; i++)
         {
@@ -60,7 +61,7 @@ public class TigerController
                 this.tiger.walk(f, cd);
             }
             catch (Exception e)
-            { }
+            {   }
         }
     }
 }

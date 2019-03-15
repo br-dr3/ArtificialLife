@@ -12,6 +12,7 @@ public class ArticialLife
         int n = 5;
         int lines = 25;
         int columns = 25;
+        int times = 100;
         
         Forest f = new Forest(lines, columns);
         TigerController tigerControllers[] = new TigerController[n];
@@ -26,7 +27,7 @@ public class ArticialLife
         
         for(int i = 0; i < n; i++)
         {
-            threads[i] = new Thread (new TigerRunner(tigerControllers[i], f), "Thread " + i);
+            threads[i] = new Thread (new TigerRunner(tigerControllers[i], f, times), "Thread " + i);
             threads[i].start();
             threads[i].join();
         }
