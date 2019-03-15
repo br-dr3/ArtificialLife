@@ -1,5 +1,6 @@
 package articiallife.model.animals;
 
+import articiallife.model.animals.signals.Pheromony;
 import articiallife.model.place.Forest;
 import articiallife.utils.Direction;
 import articiallife.utils.Position;
@@ -98,9 +99,7 @@ public class Tiger implements Animal
     
     @Override
     public String toString()
-    {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        
+    {        
         return (this.isAlive())?
                 this.getName():
                 "dead("+ this.getName() +")";
@@ -116,11 +115,16 @@ public class Tiger implements Animal
         }
     }
     
-    public void walk(Forest f, Direction d, int times) throws Exception
+    public void walk(Forest f, Direction d, int times)
     {
         for(int i = 0; i < times; i++)
         {
             this.walk(f, d);
         }
+    }
+    
+    public boolean checkPheromony(Pheromony p)
+    {
+        return p.getType() == this.getClass();
     }
 }

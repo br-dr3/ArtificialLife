@@ -1,13 +1,14 @@
 package articiallife.model.place;
 
 import articiallife.model.animals.Animal;
+import articiallife.model.animals.signals.Pheromony;
 import articiallife.utils.Position;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Forest
 {
-    Map<Animal, Position> map;
+    Map<Object, Position> map;
     Object matrix[][];
     
     public Position getPosition(Animal a)
@@ -29,7 +30,7 @@ public class Forest
         matrix = new Object [x][y];
     }
     
-    public void setObject(Animal a, Position p)
+    public void setObject(Object a, Position p)
     {
         if (map.containsKey(a))
         {
@@ -77,5 +78,13 @@ public class Forest
         }
         
         return stringBuilder.toString();
+    }
+    
+    public void update()
+    {
+        for(int i = 0; i < this.matrix.length; i++)
+            for(int j = 0; j < this.matrix[0].length; j++)
+                if(matrix[i][j] instanceof Pheromony)
+                    ((Pheromony) matrix[i][j]).update();
     }
 }
