@@ -1,5 +1,8 @@
 package articiallife.model.animals;
 
+import articiallife.model.place.Forest;
+import articiallife.utils.Direction;
+import articiallife.utils.Position;
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -90,4 +93,18 @@ public class Tiger implements Animal
                 "Tiger[dead]";
     }
 
+    @Override
+    public void walk(Forest f, Direction d) throws Exception
+    {
+        Position thisPosition = f.getPosition(this);
+        f.setObject(this, d.getNewPosition(thisPosition));        
+    }
+    
+    public void walk(Forest f, Direction d, int times) throws Exception
+    {
+        for(int i = 0; i < times; i++)
+        {
+            this.walk(f, d);
+        }
+    }
 }

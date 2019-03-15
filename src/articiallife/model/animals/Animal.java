@@ -1,5 +1,8 @@
 package articiallife.model.animals;
 
+import articiallife.model.place.Forest;
+import articiallife.utils.Direction;
+
 public interface Animal
 {
     public boolean isAlive();
@@ -9,6 +12,8 @@ public interface Animal
     public double getStrength();
     public void setLife(double life);
     public double getLife();
+    
+    public void walk (Forest f, Direction d) throws Exception;
     
     public double getLuck();
 }

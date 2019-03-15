@@ -10,6 +10,14 @@ public class Forest
     Map<Animal, Position> map;
     Object matrix[][];
     
+    public Position getPosition(Animal a)
+    {
+        if (a == null)
+            return new Position (-1, -1, false);
+        else
+            return map.get(a);
+    }
+    
     public Forest()
     {
         map = new HashMap();
@@ -18,9 +26,13 @@ public class Forest
     
     public void setObject(Animal a, Position p) throws Exception
     {
-        if (map.containsValue(a))
-            throw new Exception("The animal " + a + " already exists.");
-        if (map.containsKey(p))
+        if (map.containsKey(a))
+        {
+            Position oldPosition = map.get(a);
+            matrix[oldPosition.getX()][oldPosition.getY()] = null;
+        }
+        
+        if (map.containsValue(p))
             throw new Exception("The position " + p + " already have a Object");
         
         matrix[p.getX()][p.getY()] = a;

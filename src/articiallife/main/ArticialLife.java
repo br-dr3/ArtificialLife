@@ -2,6 +2,8 @@ package articiallife.main;
 
 import articiallife.model.animals.Tiger;
 import articiallife.model.place.Forest;
+import articiallife.utils.Direction;
+import articiallife.utils.Direction.CardinalDirections;
 import articiallife.utils.Position;
 
 public class ArticialLife
@@ -9,17 +11,12 @@ public class ArticialLife
     public static void main(String[] args) throws Exception
     {
         Forest f = new Forest();
+        Tiger tiger = new Tiger();
         
-        Tiger tiger1 = new Tiger();
-        Tiger tiger2 = new Tiger();
+        f.setObject(tiger, new Position (0, 0));
+
+        tiger.walk(f, new Direction(CardinalDirections.NORTH), 5);
         
-        while (tiger1.isAlive() && tiger2.isAlive())
-        {
-            tiger1.fight(tiger2);
-            tiger2.fight(tiger1);
-        } 
-        
-        System.out.println(tiger1);
-        System.out.println(tiger2);
+        System.out.println(f);
     }
 }
